@@ -7,10 +7,15 @@
 	<body>
 		<div>
 			<h1>User Info</h1>
-			<p>Email: {{ email}}</p>
-			<p>First Name: {{ first_name }}</p>
-			<p>Last Name: {{ last_name }}</p>
-			<form action='/'>
+			{% for users in all_users %}
+				<p>Email: {{ users['email']}}</p>
+				<p>First Name: {{ users['first_name'] }}</p>
+				<p>Last Name: {{ users['last_name'] }}</p>
+			{% endfor %}
+			{% for user in all_login %}
+				<p>Email: {{ user['email'] }}</p>
+			{% endfor%}
+			<form action='/goback' method='post'>
 				<input type="submit" value="Go Back!">
 			</form>
 		</div>
